@@ -32,4 +32,16 @@ def esta_na_lista(pais, lista):
         if pais in paises:
             return True
     return False
-    
+
+#normalizando bases de países  
+def normaliza (base_de_paises):
+    base_de_paises_normalizada = {}
+    qual_continente = {}
+    saida = {}
+    for continentes,paises in base_de_paises.items():
+        for pais, dados in paises.items():
+            dados['continente'] = continentes
+            saida[pais] = dados
+    return saida
+
+
