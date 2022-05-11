@@ -38,10 +38,26 @@ def normaliza (base_de_paises):
     base_de_paises_normalizada = {}
     qual_continente = {}
     saida = {}
-    for continentes,paises in base_de_paises.items():
+    for continentes, paises in base_de_paises.items():
         for pais, dados in paises.items():
             dados['continente'] = continentes
             saida[pais] = dados
     return saida
 
-
+#sorteia letra com restrições
+import random 
+def sorteia_letra(palavra, restritas):
+    palavra = palavra.lower()
+    lista_palavra = []
+    caracteres_especiais = ['.', ',', '-', ';', ' ']
+    sorteada = ''
+    ok = False
+    for letra in palavra:
+        if letra not in lista_palavra and letra not in restritas and letra not in caracteres_especiais:
+            lista_palavra.append(letra)
+            ok = True
+    while ok:
+        sorteada = random.choice(lista_palavra)
+        ok = False
+    return sorteada
+    
